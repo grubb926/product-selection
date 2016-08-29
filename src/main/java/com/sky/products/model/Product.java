@@ -9,18 +9,18 @@ package com.sky.products.model;
  */
 public class Product {
 
-    private String productName;
+    private String name;
     private String category;
     private String locationId;
 
-    public Product(String productName, String category, String locationId){
-        this.productName = productName;
+    public Product(String name, String category, String locationId){
+        this.name = name;
         this.category = category;
         this.locationId = locationId;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
     public String getCategory() {

@@ -22,15 +22,12 @@ public class CustomerLocationServiceImplTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
-    private Map<String, String> userLocationMap;
-
     private CustomerLocationService subjectUnderTest;
 
     @Before
     public void setUp(){
-        createLocationMap();
         subjectUnderTest = new CustomerLocationServiceImpl();
-        ReflectionTestUtils.setField(subjectUnderTest, "userLocationMap", userLocationMap);
+        ReflectionTestUtils.setField(subjectUnderTest, "userLocationMap", createLocationMap());
     }
 
     @Test
@@ -45,9 +42,10 @@ public class CustomerLocationServiceImplTest {
         subjectUnderTest.getCustomerLocationId(null);
     }
 
-    private void createLocationMap(){
-        userLocationMap = new HashMap<>();
+    private Map<String, String> createLocationMap(){
+        Map<String, String> userLocationMap = new HashMap<>();
         userLocationMap.put("valid", "LIVERPOOL");
+        return userLocationMap;
     }
 
 }

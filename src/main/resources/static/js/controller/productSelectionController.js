@@ -1,29 +1,33 @@
 angular.module("productSelectionApp").controller("ProductSelectionController", ProductSelectionController);
 
-function ProductSelectionController(){
-    var vm = this;
-    vm.products = [
-        {"name":"Arsenal TV", "category":"Sports", "location":"LONDON"},
-        {"name":"Chelsea TV", "category":"Sports", "location":"LONDON"},
-        {"name":"Liverpool TV", "category":"Sports", "location":"LIVERPOOL"},
-        {"name":"Sky News", "category":"News", "location":""},
-        {"name":"Sky Sports News", "category":"News", "location":""}
-    ]
+function ProductSelectionController($http, $cookies){
+    var viewModel = this;
+    viewModel.showConfirmation = false;
 
-    vm.selectedProducts = [];
+    viewModel.fetchProductList = function () {
+        $http.get('/product-selection/products.json').success(function(productList){
+            viewModel.products = productList;
+        });
+    };
 
-    vm.toggleSelection = function(product) {
-         var index = vm.selectedProducts.indexOf(product);
+    viewModel.confirmProducts = function (){
+        viewModel.customerId = $cookies.get('customerId');
+        viewModel.showConfirmation = true;
+    };
+
+    viewModel.products = viewModel.fetchProductList();
+
+    viewModel.selectedProducts = [];
+
+    viewModel.toggleSelection = function(product) {
+         var index = viewModel.selectedProducts.indexOf(product);
 
          if (index > -1) {
-           vm.selectedProducts.splice(index, 1);
+           viewModel.selectedProducts.splice(index, 1);
          }
 
          else {
-           vm.selectedProducts.push(product);
+           viewModel.selectedProducts.push(product);
          }
     };
-
-
 }
-

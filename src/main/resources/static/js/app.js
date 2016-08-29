@@ -1,3 +1,3 @@
-angular.module('productSelectionApp', []);
+angular.module('productSelectionApp', ['ngCookies']);
 
 
