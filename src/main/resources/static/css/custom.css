@@ -1,0 +1,10 @@
+.banner {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+ }
+
+.vertical-divider-empty-50{
+    height: 50px;
+}
