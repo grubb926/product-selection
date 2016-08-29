@@ -7,7 +7,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 /**
  * <p>
- *     Runs spring boot com.sky.products.application with embedded Tomcat server.
+ *     Runs spring boot application with embedded Tomcat server.
  * </p>
  * @author Lee Grubb
  * Date: 29/08/2016

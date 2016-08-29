@@ -1,5 +1,7 @@
 package com.sky.products.service;
 
+import com.sky.products.exception.CustomerNotFoundException;
+
 /**
  * <p>
  *
@@ -8,4 +10,6 @@ package com.sky.products.service;
  * Date: 29/08/2016
  */
 public interface CustomerLocationService {
+
+    String getCustomerLocationId(String customerId) throws CustomerNotFoundException;
 }
