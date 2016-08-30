@@ -1,15 +1,20 @@
 package com.sky.products.service;
 
-import com.sky.products.exception.CustomerNotFoundException;
+import com.sky.products.exception.CustomerInformationException;
 
 /**
- * <p>
- *
- * </p>
  * @author Lee Grubb
  * Date: 29/08/2016
  */
 public interface CustomerLocationService {
 
-    String getCustomerLocationId(String customerId) throws CustomerNotFoundException;
+    /**
+     * <p>
+     *     Retrieves the Location ID assigned to a customer by using their customerId.
+     * </p>
+     * @param customerId ID of the customer
+     * @return Location ID as a String
+     * @throws CustomerInformationException if the supplied customerId doesn't exist
+     */
+    String getCustomerLocationId(String customerId) throws CustomerInformationException;
 }

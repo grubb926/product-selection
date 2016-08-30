@@ -1,6 +1,6 @@
 package com.sky.products.service.impl;
 
-import com.sky.products.exception.CustomerNotFoundException;
+import com.sky.products.exception.CustomerInformationException;
 import com.sky.products.service.CustomerLocationService;
 import org.junit.Before;
 import org.junit.Rule;
@@ -37,8 +37,8 @@ public class CustomerLocationServiceImplTest {
     }
 
     @Test
-    public void getCustomerLocationIdForInvalidUser() throws CustomerNotFoundException {
-        exception.expect(CustomerNotFoundException.class);
+    public void getCustomerLocationIdForInvalidUser() throws CustomerInformationException {
+        exception.expect(CustomerInformationException.class);
         subjectUnderTest.getCustomerLocationId(null);
     }
 

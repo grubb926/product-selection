@@ -1,6 +1,6 @@
 package com.sky.products.service.impl;
 
-import com.sky.products.exception.CustomerNotFoundException;
+import com.sky.products.exception.CustomerInformationException;
 import com.sky.products.service.CustomerLocationService;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>
- *
- * </p>
  * @author Lee Grubb
  * Date: 29/08/2016
  */
@@ -28,10 +25,19 @@ public class CustomerLocationServiceImpl implements CustomerLocationService {
         userLocationMap.put("003", "CHESTER");
     }
 
+    /**
+     * <p>
+     *     Checks that the customerId exists within the userLocationMap, gets the location from the {@link Map} if the
+     *     customerId exists otherwise throws a {@link CustomerInformationException}
+     * </p>
+     * @param customerId ID of the customer
+     * @return Location ID as a String
+     * @throws CustomerInformationException if the supplied customerId doesn't exist
+     */
     @Override
-    public String getCustomerLocationId(String customerId) throws CustomerNotFoundException {
+    public String getCustomerLocationId(String customerId) throws CustomerInformationException {
         if(!userLocationMap.containsKey(customerId)){
-            throw new CustomerNotFoundException();
+            throw new CustomerInformationException();
         }
 
         return userLocationMap.get(customerId);

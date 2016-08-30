@@ -1,0 +1,25 @@
+<header class="banner">
+    <h1>Confirmation:</h1>
+</header>
+<div class="container-fluid">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">User ID</h3>
+            </div>
+            <div class="panel-body">
+                {{controller.customerId}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Checkout</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="selectedProduct in controller.selectedProducts" style="display:block;"> - {{selectedProduct.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

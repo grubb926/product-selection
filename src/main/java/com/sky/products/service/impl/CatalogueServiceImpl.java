@@ -10,9 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * <p>
- *
- * </p>
  * @author Lee Grubb
  * Date: 29/08/2016
  */
@@ -31,8 +28,16 @@ public class CatalogueServiceImpl implements CatalogueService {
         productList.add(new Product("Sky Sports News", "News", ""));
     }
 
+    /**
+     * <p>
+     *     Filters list of {@link Product}s based on supplied locationId or if the location is empty (applies to all locations)
+     * </p>
+     * @param locationId to filter products by
+     * @return
+     */
     @Override
     public List<Product> getProductsByLocation(String locationId) {
-        return productList.stream().filter(product -> locationId.equals(product.getLocationId()) || product.getLocationId().isEmpty()).collect(Collectors.toList());
+        return productList.stream().filter(product -> locationId.equals(product.getLocationId())
+                                                   || product.getLocationId().isEmpty()).collect(Collectors.toList());
     }
 }

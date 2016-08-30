@@ -1,8 +1,7 @@
 angular.module("productSelectionApp").controller("ProductSelectionController", ProductSelectionController);
 
-function ProductSelectionController($http, $cookies){
+function ProductSelectionController($http, $location, $cookies){
     var viewModel = this;
-    viewModel.showConfirmation = false;
 
     viewModel.fetchProductList = function () {
         $http.get('/product-selection/products.json').success(function(productList){
@@ -10,14 +9,15 @@ function ProductSelectionController($http, $cookies){
         });
     };
 
-    viewModel.confirmProducts = function (){
-        viewModel.customerId = $cookies.get('customerId');
-        viewModel.showConfirmation = true;
-    };
+    viewModel.confirmProducts = function () {
+        $location.path('/product-selection/checkout');
+    }
 
     viewModel.products = viewModel.fetchProductList();
 
     viewModel.selectedProducts = [];
+
+    viewModel.customerId = $cookies.get('customerId');
 
     viewModel.toggleSelection = function(product) {
          var index = viewModel.selectedProducts.indexOf(product);

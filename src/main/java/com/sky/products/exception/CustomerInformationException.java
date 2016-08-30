@@ -4,9 +4,9 @@ package com.sky.products.exception;
  * @author Lee Grubb
  * Date: 29/08/2016
  */
-public class CustomerNotFoundException extends Exception {
+public class CustomerInformationException extends Exception {
 
-    public CustomerNotFoundException(){
+    public CustomerInformationException(){
         super("There was a problem retrieving the customer information");
     }
 }

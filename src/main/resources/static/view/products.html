@@ -1,0 +1,50 @@
+<header class="banner">
+    <h1>Select Products:</h1>
+</header>
+<div class="container-fluid">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sports</h3>
+            </div>
+            <div class="panel-body">
+                <label ng-repeat="product in controller.products | filter:{category:'Sports'}" style="display:block;">
+                    <input type="checkbox"
+                           value="{{product.name}}"
+                           ng-checked="controller.selectedProducts.indexOf(product) > -1"
+                           ng-click="controller.toggleSelection(product)" />
+                    {{product.name}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">News</h3>
+            </div>
+            <div class="panel-body">
+                <label ng-repeat="product in controller.products | filter:{category:'News'}" style="display:block;">
+                    <input type="checkbox"
+                           value="{{product}}"
+                           ng-checked="controller.selectedProducts.indexOf(product) > -1"
+                           ng-click="controller.toggleSelection(product)" />
+                    {{product.name}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Basket</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="selectedProduct in controller.selectedProducts" style="display:block;"> - {{selectedProduct.name}}</div>
+                <hr/>
+                <form>
+                <button type="button" class="btn btn-default" ng-click="controller.confirmProducts()">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
